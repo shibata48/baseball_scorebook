@@ -37,3 +37,8 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
+
+# 以下、手動で追加
+group :development do
+  gem 'i18n_generators'  
+end
