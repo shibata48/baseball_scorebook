@@ -40,5 +40,6 @@ end
 
 # 以下、手動で追加
 group :development do
-  gem 'i18n_generators'  
+  gem 'i18n_generators'
+  gem 'puma'
 end
