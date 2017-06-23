@@ -43,3 +43,6 @@ group :development do
   gem 'i18n_generators'
   gem 'puma'
 end
+
+gem 'devise'
+gem 'bcrypt', git: 'https://github.com/oya3/bcrypt-ruby.git', :require => 'bcrypt'
