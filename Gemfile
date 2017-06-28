@@ -42,6 +42,7 @@ end
 group :development do
   gem 'i18n_generators'
   gem 'puma'
+  gem 'erb2haml'
 end
 
 gem 'devise'
