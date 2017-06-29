@@ -11,7 +11,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170623005219) do
+ActiveRecord::Schema.define(version: 20170629083915) do
+
+  create_table "games", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "team_bat_first_id"
+    t.integer  "team_field_first_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  add_index "games", ["team_bat_first_id"], name: "index_games_on_team_bat_first_id"
+  add_index "games", ["team_field_first_id"], name: "index_games_on_team_field_first_id"
+
+  create_table "innings", force: :cascade do |t|
+    t.integer  "result_id"
+    t.integer  "number"
+    t.integer  "top_score"
+    t.integer  "bottom_score"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "innings", ["result_id"], name: "index_innings_on_result_id"
+
+  create_table "results", force: :cascade do |t|
+    t.integer  "game_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "results", ["game_id"], name: "index_results_on_game_id"
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "teams", ["name"], name: "index_teams_on_name", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

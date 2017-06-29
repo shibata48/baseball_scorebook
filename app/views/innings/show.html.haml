@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Result:
+  = @inning.result
+%p
+  %b Number:
+  = @inning.number
+%p
+  %b Top score:
+  = @inning.top_score
+%p
+  %b Bottom score:
+  = @inning.bottom_score
+
+= link_to 'Edit', edit_inning_path(@inning)
+\|
+= link_to 'Back', innings_path

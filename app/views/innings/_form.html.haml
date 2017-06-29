@@ -1,0 +1,11 @@
+= simple_form_for(@inning) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :result
+    = f.input :number
+    = f.input :top_score
+    = f.input :bottom_score
+
+  .form-actions
+    = f.button :submit

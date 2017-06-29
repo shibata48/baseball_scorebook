@@ -1,0 +1,27 @@
+%h1 Listing innings
+
+%table
+  %thead
+    %tr
+      %th Result
+      %th Number
+      %th Top score
+      %th Bottom score
+      %th
+      %th
+      %th
+
+  %tbody
+    - @innings.each do |inning|
+      %tr
+        %td= inning.result
+        %td= inning.number
+        %td= inning.top_score
+        %td= inning.bottom_score
+        %td= link_to 'Show', inning
+        %td= link_to 'Edit', edit_inning_path(inning)
+        %td= link_to 'Destroy', inning, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Inning', new_inning_path
