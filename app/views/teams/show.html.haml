@@ -1,8 +1,10 @@
 %p#notice= notice
 
-%p
-  %b Name:
-  = @team.name
+%table.table.table-bordered
+  %tbody
+    %tr
+      %th Name
+      %td= @team.name
 
 = link_to 'Edit', edit_team_path(@team)
 \|

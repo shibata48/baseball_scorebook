@@ -1,5 +1,9 @@
 - if user_signed_in?
   %li= link_to 'Sign out', destroy_user_session_path, method: :delete
+  %li= link_to 'Teams', teams_path
+  %li= link_to 'Games', games_path
+  %li= link_to 'Results', results_path
+  %li= link_to 'Innings', innings_path
   %span.navbar-text= current_user.email
 - else
   %li= link_to 'Sign in', new_user_session_path
