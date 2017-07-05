@@ -3,7 +3,7 @@
 %table.table.table-bordered
   %thead
     %tr
-      %th Result
+      %th Game
       %th Number
       %th Top score
       %th Bottom score
@@ -14,7 +14,7 @@
   %tbody
     - @innings.each do |inning|
       %tr
-        %td= inning.result
+        %td= inning.game.name
         %td= inning.number
         %td= inning.top_score
         %td= inning.bottom_score

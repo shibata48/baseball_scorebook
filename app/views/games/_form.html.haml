@@ -1,10 +1,25 @@
-= simple_form_for(@game) do |f|
+= simple_nested_form_for(@game) do |f|
   = f.error_notification
 
   .form-inputs
-    = f.input :name
-    = f.association :team_bat_first
-    = f.association :team_field_first
+    .row
+      = f.input :name
+
+    .row
+      .col-sm-3
+        %div.row= f.association :team_bat_first
+        %div.row= f.association :team_field_first
+      .col-sm-9
+        - index = 1
+        = f.simple_fields_for :innings do |form_inning|
+          .col-sm-1
+            = f.hidden_field :id
+            .row.inning_index
+            %div.row= form_inning.input :top_score
+            %div.row= form_inning.input :bottom_score
+            %div.row= form_inning.link_to_remove 'Remove Inning'
+            - index = index + 1
+        = f.link_to_add 'Add Inning', :innings, data: { limit: 20 }
 
   .form-actions
     = f.button :submit

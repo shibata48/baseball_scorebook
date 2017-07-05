@@ -12,6 +12,31 @@
       %th Team Field First
       %td= @game.team_field_first.name
 
+.container
+  .row{:border => '1px solid red'}
+    = @game.name
+  .row
+    .col-sm-3
+      %table.table.table-bordered
+        %tbody
+          %tr
+            %th= 'チーム名'
+          %tr
+            %td= @game.team_bat_first.name
+          %tr
+            %td= @game.team_field_first.name
+    .col-sm-9
+      - @game.innings.order(:number).each do |inning|
+        .col-sm-1
+          %table.table.table-bordered
+            %tbody
+              %tr
+                %th= inning.number
+              %tr
+                %td= inning.top_score
+              %tr
+                %td= inning.bottom_score
+
 = link_to 'Edit', edit_game_path(@game)
 \|
 = link_to 'Back', games_path

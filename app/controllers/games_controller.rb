@@ -13,6 +13,7 @@ class GamesController < ApplicationController
   # GET /games/new
   def new
     @game = Game.new
+    # @game.innings.build
   end
 
   # GET /games/1/edit
@@ -53,6 +54,12 @@ class GamesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def game_params
-      params.require(:game).permit(:name, :team_bat_first_id, :team_field_first_id)
+      params.require(:game).permit(
+        :name,
+        :team_bat_first_id,
+        :team_field_first_id,
+        innings_attributes: [:id, :number, :top_score, :bottom_score, :_destroy]
+      )
+      assert
     end
 end

@@ -47,3 +47,4 @@ end
 
 gem 'devise'
 gem 'bcrypt', git: 'https://github.com/oya3/bcrypt-ruby.git', :require => 'bcrypt'
+gem 'nested_form'
