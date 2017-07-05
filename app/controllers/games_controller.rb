@@ -60,6 +60,5 @@ class GamesController < ApplicationController
         :team_field_first_id,
         innings_attributes: [:id, :number, :top_score, :bottom_score, :_destroy]
       )
-      assert
     end
 end
