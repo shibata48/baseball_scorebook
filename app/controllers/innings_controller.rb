@@ -53,6 +53,6 @@ class InningsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def inning_params
-      params.require(:inning).permit(:result_id, :number, :top_score, :bottom_score)
+      params.require(:inning).permit(:game_id, :number, :top_score, :bottom_score)
     end
 end

@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20170629083915) do
   add_index "games", ["team_field_first_id"], name: "index_games_on_team_field_first_id"
 
   create_table "innings", force: :cascade do |t|
-    t.integer  "result_id"
+    t.integer  "game_id"
     t.integer  "number"
     t.integer  "top_score"
     t.integer  "bottom_score"
@@ -33,15 +33,7 @@ ActiveRecord::Schema.define(version: 20170629083915) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "innings", ["result_id"], name: "index_innings_on_result_id"
-
-  create_table "results", force: :cascade do |t|
-    t.integer  "game_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "results", ["game_id"], name: "index_results_on_game_id"
+  add_index "innings", ["game_id"], name: "index_innings_on_game_id"
 
   create_table "teams", force: :cascade do |t|
     t.string   "name"
